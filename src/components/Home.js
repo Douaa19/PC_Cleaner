@@ -13,7 +13,7 @@ function Home() {
       gridArea: "1 / 1 / 2 / 2",
     },
     main: {
-      gridArea: "1 / 2 / 2 / 6",
+      gridArea: "1 / 2 / 2 / 7",
     },
   };
   return (
@@ -22,7 +22,6 @@ function Home() {
         <div className="header">
           <Header />
         </div>
-        <div className="cards"></div>
       </div>
       <div className="side-bar" style={styles.sideBar}>
         <SideBar />
