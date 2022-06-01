@@ -1,8 +1,10 @@
 const { app, BrowserWindow } = require("electron");
 
 require("@electron/remote/main").initialize();
+const { MainMenu } = require("../src/menu/MainMenu");
 
-const createWondow = () => {
+const createWindow = () => {
+  new MainMenu();
   // Create the browser window.
   const win = new BrowserWindow({
     width: 800,
@@ -15,13 +17,25 @@ const createWondow = () => {
     },
   });
 
+  const childWin = new BrowserWindow({
+    width: 500,
+    height: 500,
+    parent: win,
+    show: false,
+    frame: true,
+  });
+
   win.loadURL("http://localhost:3000");
+  childWin.loadFile("../src/components/authentication/Login.js");
 
   // Open the DevTools
   win.webContents.openDevTools();
+  childWin.once("ready-to-show", () => {
+    childWin.show();
+  });
 };
 
-app.on("ready", createWondow);
+app.on("ready", createWindow);
 
 // Quit when all windows are closed
 app.on("window-all-closed", function () {
@@ -31,5 +45,5 @@ app.on("window-all-closed", function () {
 });
 
 app.on("activate", () => {
-  if (BrowserWindow.getAllWindows().length === 0) createWondow();
+  if (BrowserWindow.getAllWindows().length === 0) createWindow();
 });

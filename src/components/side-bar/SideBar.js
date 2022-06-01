@@ -19,7 +19,7 @@ function SideBar() {
       padding: "2.5rem 0.8rem",
     },
     list: {
-      backgroundColor: "#1E77C7",
+      backgroundColor: "#1A83D9",
       height: "98%",
     },
     ul: {
@@ -47,7 +47,7 @@ function SideBar() {
       justifyContent: "center",
     },
     button: {
-      backgroundColor: "#1E77C7",
+      backgroundColor: "#1A83D9",
       padding: "0.7rem 4rem",
       border: "none",
       color: "#FFFFFF",
