@@ -9,13 +9,14 @@ function Home() {
     container: {
       display: "grid",
       gridTemplateColumns: "repeat(6, 1fr)",
-      gridTemplateRows: "1fr",
+      gridTemplateRows: "repeat(1, 1fr)",
     },
     sideBar: {
       gridArea: "1 / 1 / 2 / 2",
+      maxHeight: "85%",
     },
     main: {
-      gridArea: "1 / 2 / 2 / 7",
+      gridArea: "1 / 2 / 12 / 7",
       backgroundColor: "#eee",
     },
   };

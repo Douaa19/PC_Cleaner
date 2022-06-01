@@ -1,17 +1,26 @@
 class MainMenu {
-    cunstructor() {
-        const {Menu} = require("electron")
-        let template = [
-            {
-                label: "Sign-in"
-            },
-            {
-                label: "Sign-up",
-            },
-        ]
-        let menu = Menu.buildFromTemplate(template);
-        Menu.setApplicationMenu(Menu)
-    }
+  cunstructor() {
+    const { Menu } = require("electron");
+    let template = [
+      {
+        label: "File",
+      },
+      {
+        label: "About",
+      },
+      {
+        label: "Sign-in",
+      },
+      {
+        label: "Sign-in",
+      },
+      {
+        label: "Quit",
+      },
+    ];
+    let menu = Menu.buildFromTemplate(template);
+    Menu.setApplicationMenu(menu);
+  }
 }
 
-module.exports = {MainMenu}
+module.exports = { MainMenu };

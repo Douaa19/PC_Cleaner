@@ -17,11 +17,12 @@ function Cards() {
       width: "100%",
     },
     card: {
-      fontWeight: "bold",
+      fontWeight: "500",
+      letterSpacing: "2px",
       backgroundColor: "#1A83D9",
       color: "#FFFFFF",
       width: "22%",
-      height: "60%",
+      height: "50%",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
@@ -34,19 +35,19 @@ function Cards() {
         <div className="card" style={styles.card}>
           <div className="icon"></div>
           <div className="" onClick={() => {}}>
-            <h3>NETTOYER</h3>
+            <span>NETTOYER</span>
           </div>
         </div>
         <div className="card" style={styles.card}>
           <div className="icon"></div>
           <div className="" onClick={() => {}}>
-            <h3>HISTORIQUE</h3>
+            <span>HISTORIQUE</span>
           </div>
         </div>
         <div className="card" style={styles.card}>
           <div className="icon"></div>
           <div className="" onClick={() => {}}>
-            <h3>METTRE A JOUR</h3>
+            <span>METTRE A JOUR</span>
           </div>
         </div>
       </div>

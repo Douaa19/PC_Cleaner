@@ -9,6 +9,10 @@ function Header() {
       alignItems: "center",
       justifyContent: "space-around",
     },
+    h1: {
+      letterSpacing: "2px",
+      paddingTop: "1rem",
+    },
     title: {
       display: "flex",
       flexDirection: "column",
@@ -35,19 +39,22 @@ function Header() {
   return (
     <div style={styles.container}>
       <div className="title">
-        <h1>Analyse du PC nécessaire</h1>
+        <h1 style={styles.h1}>Analyse du PC nécessaire</h1>
         <div className="details" style={styles.details}>
           <div>
-            <span style={styles.small}>Espace à nettoyer:</span>{" "}
-            <span>A déterminer par analyse</span>
+            <span style={styles.small}>Espace à nettoyer :</span>
+            {"  "}
+            <span> A déterminer par analyse</span>
           </div>
           <div>
-            <span style={styles.small}>Dernière analyse:</span>{" "}
-            <span>08/06/2021</span>
+            <span style={styles.small}>Dernière analyse :</span>
+            {"  "}
+            <span> 08/06/2021</span>
           </div>
           <div>
-            <span style={styles.small}>Dernière MAJ:</span>{" "}
-            <span>08/06/2021</span>
+            <span style={styles.small}>Dernière MAJ :</span>
+            {"  "}
+            <span> 08/06/2021</span>
           </div>
         </div>
       </div>

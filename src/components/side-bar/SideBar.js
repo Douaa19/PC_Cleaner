@@ -2,7 +2,6 @@ import React from "react";
 
 function SideBar() {
   const styles = {
-    container: {},
     header: {
       backgroundColor: "#1064AC",
     },

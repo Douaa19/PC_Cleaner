@@ -2,8 +2,7 @@ import React from "react";
 
 function Footer() {
   const styles = {
-    container: {
-    },
+    container: {},
     text: {
       display: "flex",
       alignItems: "start",
@@ -11,7 +10,7 @@ function Footer() {
       flexDirection: "column",
       padding: "1rem 0 4rem 4rem",
       fontWeight: "500",
-      fontSize: "16px"
+      fontSize: "16px",
     },
   };
 
