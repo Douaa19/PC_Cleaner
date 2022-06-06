@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import { Analyse } from "../../services/Analyse";
 
 function SideBar() {
+  const [resultAnalyse, setResultAnalyse] = useState("");
+
+  const AnalyseResult = () => {
+    Analyse().then((res) => {
+      if (res.data) setResultAnalyse(res.data.result);
+    });
+  };
+
   const styles = {
     header: {
       backgroundColor: "#1064AC",
@@ -38,6 +47,12 @@ function SideBar() {
       alignItems: "center",
       justifyContent: "start",
     },
+    resaumt: {
+      display: "flex",
+      justifyContent: "center",
+      flexDirection: "column",
+      alignItems: "start",
+    },
     lastLi: {
       height: "10rem",
       backgroundColor: "#1064AC",
@@ -70,7 +85,12 @@ function SideBar() {
           <li style={styles.li} onClick={() => {}}>
             VUE D'ENSEMBLE
           </li>
-          <li style={styles.li} onClick={() => {}}>
+          <li
+            style={styles.li}
+            onClick={() => {
+              AnalyseResult();
+            }}
+          >
             ANALYSER
           </li>
           <li style={styles.li} onClick={() => {}}>

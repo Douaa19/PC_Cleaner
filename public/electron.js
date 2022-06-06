@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require("electron");
+const { app, BrowserWindow, Menu, webContents } = require("electron");
 
 require("@electron/remote/main").initialize();
 const { MainMenu } = require("../src/menu/MainMenu");
@@ -17,32 +17,66 @@ const createWindow = () => {
     },
   });
 
-  // const childWin = new BrowserWindow({
-  //   width: 500,
-  //   height: 500,
-  //   parent: win,
-  //   show: false,
-  //   frame: true,
-  // });
+  const childWin = new BrowserWindow({
+    width: 500,
+    height: 500,
+    // parent: win,
+    show: false,
+    frame: true,
+  });
 
   win.loadURL("http://localhost:3000");
-  // childWin.loadFile("../src/components/authentication/Login.js");
+  childWin.loadURL("http://github.com");
 
   const template = [
     {
       label: "File",
+      submenu: [
+        {
+          label: "Open File",
+        },
+        {
+          label: "Open Folder",
+        },
+      ],
     },
     {
       label: "About",
     },
     {
-      label: "Sign-in",
+      label: "Authentication",
+      submenu: [
+        {
+          label: "Sign-up",
+        },
+        {
+          label: "Sign-in",
+          click() {
+            childWin.open(
+              "https://github.com",
+              "_blank",
+              "top=500,left=200,frame=false,nodeIntegration=no"
+            );
+          },
+        },
+      ],
     },
     {
-      label: "Sign-up",
+      label: "Developer",
+      submenu: [
+        {
+          label: "Toggle Developer Tools",
+          accelerator:
+            process.platform === "darwin" ? "Alt+Command+I" : "Ctrl+Shift+I",
+          click() {
+            win.webContents.toggleDevTools();
+          },
+        },
+      ],
     },
     {
       label: "Quit",
+      role: "close",
     },
   ];
 

@@ -1,6 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { Analyse } from "../../services/Analyse";
 
 function Header() {
+  const [history, setHistory] = useState("");
+  const [resultAnalyse, setResultAnalyse] = useState("");
+  // const URL = "http://localhost:8080/history/";
+
+  // get last analyse
+  const analyseHistory = (async () => {
+    return await axios.get(`${URL}`).then((result) => {
+      if (result) {
+        return setHistory(result.data.result);
+      } else {
+        console.log("No analyse found !!");
+      }
+    });
+  })();
+
+  const AnalyseResult = () => {
+    // console.log("hello")
+    try {
+      Analyse().then((res) => {
+        if (res.data) setResultAnalyse(res.data.result);
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   const styles = {
     container: {
       color: "#FFFFFF",
@@ -33,6 +61,7 @@ function Header() {
       border: "2px solid #FFFFFF",
       padding: "0.6rem 3.5rem",
       fontWeight: "600",
+      cursor: "pointer",
     },
   };
 
@@ -44,12 +73,12 @@ function Header() {
           <div>
             <span style={styles.small}>Espace à nettoyer :</span>
             {"  "}
-            <span> A déterminer par analyse</span>
+            <span> {history.size}</span>
           </div>
           <div>
             <span style={styles.small}>Dernière analyse :</span>
             {"  "}
-            <span> 08/06/2021</span>
+            <span> {history.time_at}</span>
           </div>
           <div>
             <span style={styles.small}>Dernière MAJ :</span>
@@ -59,7 +88,11 @@ function Header() {
         </div>
       </div>
       <div className="btn">
-        <button type="submit" style={styles.button}>
+        <button
+          type="submit"
+          style={styles.button}
+          onClick={() => AnalyseResult()}
+        >
           ANALYSER
         </button>
       </div>

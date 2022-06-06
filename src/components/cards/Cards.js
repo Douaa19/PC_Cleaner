@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 function Cards() {
+  const URL = "http://localhost:8080/cleaner/";
+  const Cleane = () => {
+    try {
+      axios.get(`${URL}`).then((res) => {
+        if (res) {
+          console.log(res);
+        }
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   const styles = {
     container: {
       marginTop: "1.5rem",
@@ -27,26 +41,27 @@ function Cards() {
       alignItems: "center",
       justifyContent: "center",
       flexDirection: "column",
+      cursor: "pointer",
     },
   };
   return (
     <div style={styles.container}>
       <div className="cards" style={styles.cards}>
-        <div className="card" style={styles.card}>
+        <div className="card" style={styles.card} onClick={() => {}}>
           <div className="icon"></div>
-          <div className="" onClick={() => {}}>
+          <div className="" onClick={() => Cleane()}>
             <span>NETTOYER</span>
           </div>
         </div>
-        <div className="card" style={styles.card}>
+        <div className="card" style={styles.card} onClick={() => {}}>
           <div className="icon"></div>
-          <div className="" onClick={() => {}}>
+          <div className="">
             <span>HISTORIQUE</span>
           </div>
         </div>
-        <div className="card" style={styles.card}>
+        <div className="card" style={styles.card} onClick={() => {}}>
           <div className="icon"></div>
-          <div className="" onClick={() => {}}>
+          <div className="">
             <span>METTRE A JOUR</span>
           </div>
         </div>
